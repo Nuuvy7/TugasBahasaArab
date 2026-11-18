@@ -1,0 +1,20 @@
+{
+  "name": "tajawwul-bullet-hell",
+  "version": "1.0.0",
+  "description": "Touhou-style bullet hell game untuk tugas bahasa Arab — elak peluru huruf hijaiyah, jawab kuis, taklukkan kartu ilmu grammar",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "touhou",
+    "danmaku",
+    "bullet-hell",
+    "arabic",
+    "bahasa-arab",
+    "huruf-hijaiyah",
+    "edukasi"
+  ],
+  "author": "Flos",
+  "license": "MIT"
+}

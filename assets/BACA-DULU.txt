@@ -1,0 +1,21 @@
+🎵 DROP-IN BGM SLOT — assets/qawlu-qawlu-sawarim.mp3
+=====================================================
+
+Cara pakai (30 detik):
+
+1. Punya file mp3 "Qawlu Qawlu Sawarim" (قول قول صوارم)?
+2. Copy / rename jadi persis:
+
+       qawlu-qawlu-sawarim.mp3
+
+   dan taruh di folder ini (assets/).
+
+3. Refresh halaman game. Otomatis kebaca, tombol mode
+   berubah jadi "MP3", dan BGM-mu langsung diputar.
+
+Selama file ini BELUM ada, game otomatis pakai sintesis
+WebAudio maqam Hijaz bawaan (bebas copyright) — jadi
+game-nya tetap jalan walau mp3 belum dimasukkan.
+
+Tekan tombol "Mode" di header atau tombol N di keyboard
+buat ganti-ganti antara MP3 dan SYNTH.

@@ -37,66 +37,99 @@
   const SOAL = [
     // ---------- Arab → Indonesia (pilih arti) ----------
     {
-      q: "Apa arti kata <b>قَهْوَة</b>?",
+      q: "Apa arti dari <b>Hadza qalamun</b>?",
       type: "id",
-      options: ["kopi", "teh", "roti", "air"],
+      options: ["Ini pulpen", "Ini penggaris", "Ini tas", "Ini penghapus"],
       answer: 0,
     },
     {
-      q: "Apa arti kata <b>كِتَاب</b>?",
-      type: "id",
-      options: ["pensil", "meja", "buku", "kursi"],
-      answer: 2,
-    },
-    {
-      q: "Apa arti kata <b>قَمَر</b>?",
-      type: "id",
-      options: ["matahari", "bintang", "bulan", "awan"],
-      answer: 2,
-    },
-    {
-      q: "Apa arti kata <b>مَاء</b>?",
-      type: "id",
-      options: ["tanah", "angin", "api", "air"],
-      answer: 3,
-    },
-    {
-      q: "Apa arti kata <b>حَبِيبِي</b>?",
-      type: "id",
-      options: ["guruku", "musuhku", "sayangku", "saudaraku"],
-      answer: 2,
-    },
-
-    // ---------- Indonesia → Arab (pilih kata Arab) ----------
-    {
-      q: "Bahasa Arab untuk <b>roti</b> adalah…",
+      q: "Bahasa Arab dari <b>Ini penggaris</b> adalah...",
       type: "ar",
-      options: ["خُبْز", "لَحْم", "أُسْتَاذ", "سَمَاء"],
-      answer: 0,
-    },
-    {
-      q: "Bahasa Arab untuk <b>guru</b> adalah…",
-      type: "ar",
-      options: ["طَالِب", "وَزِير", "مُعَلِّم", "حَارِس"],
-      answer: 2,
-    },
-    {
-      q: "Bahasa Arab untuk <b>rumah</b> adalah…",
-      type: "ar",
-      options: ["بَاب", "جَدَار", "بَيْت", "نَافِذَة"],
-      answer: 2,
-    },
-    {
-      q: "Bahasa Arab untuk <b>sekolah</b> adalah…",
-      type: "ar",
-      options: ["مَسْجِد", "مَدْرَسَة", "سُوق", "مَطْعَم"],
+      options: [
+        "Hadza mistharatun",
+        "Hadzihi mistharatun",
+        "Hadzihi qalamun",
+        "Hadza haqiibatun",
+      ],
       answer: 1,
     },
     {
-      q: "Bahasa Arab untuk <b>matahari</b> adalah…",
+      q: "Arti dari kalimat <b>Hadzihi mimhaatun</b> adalah...",
+      type: "id",
+      options: ["Ini buku tulis", "Ini pensil", "Ini penghapus", "Ini meja"],
+      answer: 2,
+    },
+    {
+      q: "Terjemahan yang tepat untuk <b>Ini buku tulis</b> adalah...",
       type: "ar",
-      options: ["شَمْس", "قَمَر", "نَار", "رِيح"],
+      options: [
+        "Hadzihi daftarun",
+        "Hadza mimhaatun",
+        "Hadzihi mibraatun",
+        "Hadza daftarun",
+      ],
+      answer: 3,
+    },
+    {
+      q: "Apa arti dari <b>Hadzihi haqiibatun</b>?",
+      type: "id",
+      options: ["Ini tas", "Ini kursi", "Ini kertas", "Ini rautan"],
       answer: 0,
+    },
+    {
+      q: "Bahasa Arab yang benar untuk <b>Ini pensil</b> adalah...",
+      type: "ar",
+      options: [
+        "Hadzihi mirsamun",
+        "Hadza mirsamun",
+        "Hadza miqlamatun",
+        "Hadzihi kitabun",
+      ],
+      answer: 1,
+    },
+    {
+      q: "Arti dari <b>Hadza kitabun</b> dalam bahasa Indonesia adalah...",
+      type: "id",
+      options: [
+        "Ini tempat pensil",
+        "Ini papan tulis",
+        "Ini buku paket",
+        "Ini penggaris",
+      ],
+      answer: 2,
+    },
+    {
+      q: "Bahasa Arab dari <b>Ini rautan</b> adalah...",
+      type: "ar",
+      options: [
+        "Hadza mibraatun",
+        "Hadza kursiyyun",
+        "Hadzihi qalamun",
+        "Hadzihi mibraatun",
+      ],
+      answer: 3,
+    },
+    {
+      q: "Apa arti dari kalimat <b>Hadzihi miqlamatun</b>?",
+      type: "id",
+      options: [
+        "Ini tempat pensil",
+        "Ini pulpen",
+        "Ini buku tulis",
+        "Ini meja",
+      ],
+      answer: 0,
+    },
+    {
+      q: "Terjemahan yang tepat untuk <b>Ini kursi</b> adalah...",
+      type: "ar",
+      options: [
+        "Hadzihi kursiyyun",
+        "Hadza kursiyyun",
+        "Hadzihi maktabun",
+        "Hadza sabbuuratun",
+      ],
+      answer: 1,
     },
   ];
 
@@ -108,14 +141,21 @@
     if (!q || typeof q.q !== "string" || !q.q.trim())
       masalah.push('field "q" (pertanyaan) kosong');
     if (!Array.isArray(q.options) || q.options.length !== 4)
-      masalah.push(`"options" harus tepat 4 (sekarang ${Array.isArray(q.options) ? q.options.length : "bukan array"})`);
+      masalah.push(
+        `"options" harus tepat 4 (sekarang ${Array.isArray(q.options) ? q.options.length : "bukan array"})`,
+      );
     else if (new Set(q.options).size !== 4)
       masalah.push("ada opsi yang duplikat");
     if (typeof q.answer !== "number" || q.answer < 0 || q.answer > 3)
       masalah.push(`"answer" harus angka 0–3 (sekarang: ${q.answer})`);
 
     if (masalah.length) {
-      console.error(`✘ ${nama} bermasalah →`, masalah.join(" | "), "\n   soal:", q);
+      console.error(
+        `✘ ${nama} bermasalah →`,
+        masalah.join(" | "),
+        "\n   soal:",
+        q,
+      );
       return false;
     }
     return true;
@@ -136,7 +176,9 @@
     /** Hapus soal berdasarkan nomor urut. */
     remove(index) {
       if (index < 0 || index >= SOAL.length) {
-        console.warn(`⚠ remove(${index}) — nomor tidak ada (0–${SOAL.length - 1})`);
+        console.warn(
+          `⚠ remove(${index}) — nomor tidak ada (0–${SOAL.length - 1})`,
+        );
         return null;
       }
       return SOAL.splice(index, 1)[0];
@@ -146,11 +188,16 @@
     edit(index, perubahan) {
       const soal = SOAL[index];
       if (!soal) {
-        console.warn(`⚠ edit(${index}) — nomor tidak ada (0–${SOAL.length - 1})`);
+        console.warn(
+          `⚠ edit(${index}) — nomor tidak ada (0–${SOAL.length - 1})`,
+        );
         return null;
       }
       Object.assign(soal, perubahan);
-      if (!validate(soal, index)) console.warn("⚠ perubahan dibatalkan (tidak valid) — kembalikan nilai lama.");
+      if (!validate(soal, index))
+        console.warn(
+          "⚠ perubahan dibatalkan (tidak valid) — kembalikan nilai lama.",
+        );
       return soal;
     },
 
@@ -160,7 +207,8 @@
       SOAL.forEach((q, i) => {
         if (!validate(q, i)) bad++;
       });
-      if (bad === 0) console.log(`✔ bank soal valid — ${SOAL.length} soal siap dimainkan`);
+      if (bad === 0)
+        console.log(`✔ bank soal valid — ${SOAL.length} soal siap dimainkan`);
       else console.error(`✘ ${bad} soal bermasalah (lihat pesan di atas)`);
       return bad === 0;
     },

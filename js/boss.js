@@ -79,8 +79,10 @@ class Boss {
         : null;
     if (cfg) return cfg.multiplier;
     // fallback kalau game belum siap
-    return this.difficulty === "easy"
-      ? 0.4
+    return this.difficulty === "baby"
+      ? 0.1
+      : this.difficulty === "easy"
+        ? 0.4
       : this.difficulty === "hard"
         ? 0.7
         : this.difficulty === "lunatic"

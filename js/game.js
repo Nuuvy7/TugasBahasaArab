@@ -19,6 +19,7 @@ class Game {
 
     // Label + tuning tiap difficulty (kunci internal: easy/hard/normal/lunatic)
     this.diffLabels = {
+      baby: "Baby mode — habibi damai",
       easy: "Yalla yalla brother no problem very easy",
       hard: "Habibi this is good very nice",
       normal: "Wallahi habibi youre good brother",
@@ -26,6 +27,7 @@ class Game {
     };
     // Label pendek khusus HUD (versi panjang ada di dropdown & layar judul)
     this.diffShort = {
+      baby: "BABY",
       easy: "EASY",
       hard: "MEDIUM",
       normal: "NORMAL",
@@ -33,6 +35,7 @@ class Game {
     };
     // multiplier = kepadatan peluru, lives/bombs = modal awal
     this.diffConfig = {
+      baby: { multiplier: 0.1, lives: 6, bombs: 6 },
       easy: { multiplier: 0.4, lives: 5, bombs: 5 },
       hard: { multiplier: 0.7, lives: 4, bombs: 4 },
       normal: { multiplier: 1.0, lives: 3, bombs: 3 },

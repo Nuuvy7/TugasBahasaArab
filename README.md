@@ -1,4 +1,4 @@
-# 🕌 TAJAWWUL (تجوال) — Bullet Hell Bahasa Arab
+# TAJAWWUL (تجوال) — Bullet Hell Bahasa Arab
 
 A **Touhou-style danmaku (bullet hell)** game built as an **Arabic language assignment**.
 You dodge **Arabic hijaiyah letter bullets**, collect **vocabulary orbs**, answer **Arabic quizzes**
@@ -9,7 +9,7 @@ mid-battle, and defeat **الأستاذ (Al-Ustaz)** across 5 grammar "knowledge
 
 ---
 
-## 🎮 How to Run
+## How to Run
 
 ```bash
 ./start.sh 8080        # or
@@ -36,16 +36,16 @@ Then open **http://localhost:8080** (or open `index.html` directly).
 
 | Display name (short) | Full in-game label                         | Internal value | Bullet density                           | Lives | Bombs |
 | :------------------- | :----------------------------------------- | :------------- | :--------------------------------------- | :---- | :---- |
-| 👶 Easy              | `Yalla yalla brother no problem very easy` | `easy`         | 0.4× (super santai, buat hafal kosakata) | 5     | 5     |
-| 🫶 Medium-easy       | `Habibi this is good very nice`            | `hard`         | 0.7× (masih ramah)                       | 4     | 4     |
-| ⚔️ Normal            | `Wallahi habibi youre good brother`        | `normal`       | 1.0× (standar)                           | 3     | 3     |
-| 🔥 Hard              | `HABIBI WELCOME TO JAHANNAM HABIBI`        | `lunatic`      | 1.4× (nyaris mustahil)                   | 2     | 2     |
+| Easy                 | `Yalla yalla brother no problem very easy` | `easy`         | 0.4× (super santai, buat hafal kosakata) | 5     | 5     |
+| Medium-easy          | `Habibi this is good very nice`            | `hard`         | 0.7× (masih ramah)                       | 4     | 4     |
+| Normal               | `Wallahi habibi youre good brother`        | `normal`       | 1.0× (standar)                           | 3     | 3     |
+| Hard                 | `HABIBI WELCOME TO JAHANNAM HABIBI`        | `lunatic`      | 1.4× (nyaris mustahil)                   | 2     | 2     |
 | **Mute**             | <kbd>M</kbd>                               | —              |
 | **BGM mode**         | <kbd>N</kbd> (MP3 / Synth)                 | Mode button    |
 
 ---
 
-## 🎓 Where's the Arabic?
+## Where's the Arabic?
 
 | Feature                            | What you learn                                                                            |
 | :--------------------------------- | :---------------------------------------------------------------------------------------- |
@@ -68,7 +68,7 @@ Then open **http://localhost:8080** (or open `index.html` directly).
 
 ---
 
-## 🎵 BGM: "Qawlu Qawlu Sawarim" (قول قول صوارم)
+## BGM: "Qawlu Qawlu Sawarim" (قول قول صوارم)
 
 Two sources, switchable with <kbd>N</kbd> or the **Mode** button:
 
@@ -83,7 +83,7 @@ procedurally generated via the Web Audio API — zero asset files needed.
 
 ---
 
-## 📁 Project Architecture
+## Project Architecture
 
 ```
 TugasBArabHeheyy/
@@ -93,10 +93,10 @@ TugasBArabHeheyy/
 ├── package.json          # npm start
 ├── assets/
 │   ├── BACA-DULU.txt             # How to drop in your BGM mp3
-│   └── qawlu-qawlu-sawarim.mp3   # 👈 DROP YOUR MP3 HERE (optional)
+│   └── qawlu-qawlu-sawarim.mp3
 └── js/
-    ├── arabic.js    # 🎓 Educational content: letters, vocab, grammar cards, memes
-    ├── quizzes.js   # 📝 Quiz bank (10 soal) — edit this file to add/remove/edit questions
+    ├── arabic.js    # Educational content: letters, vocab, grammar cards, memes
+    ├── quizzes.js   # Quiz bank (10 soal) — edit this file to add/remove/edit questions
     ├── audio.js     # BGM manager (MP3 slot + maqam synth) + procedural SFX
     ├── danmaku.js   # Bullet physics (letter bullets, freeze, bounce, graze)
     ├── player.js    # Keffiyeh protagonist, focus hitbox, Shawarma Habibi bomb
@@ -116,7 +116,7 @@ Invalid questions are reported in the browser console on page load.
 
 ---
 
-## ✅ Notes for submission
+## Notes for submission
 
 - Pure **HTML5 Canvas + vanilla JavaScript** — no frameworks, no build step.
 - Educational data is centralized in `js/arabic.js` (vocab & letters); quizzes live in `js/quizzes.js`.

@@ -477,7 +477,7 @@ class Player {
     ctx.font = 'bold 12px "Cinzel", serif';
     ctx.fillStyle = "rgba(255, 220, 120, 0.8)";
     ctx.textAlign = "center";
-    const txt = "SHAWARMA HABIBI ✦ SHAWARMA HABIBI ✦";
+    const txt = "SHAWARMA ANA ✦ SHAWARMA ANA ✦";
     ctx.fillText(txt, 0, -70);
     ctx.restore();
 

@@ -37,9 +37,9 @@ Then open **http://localhost:8080** (or open `index.html` directly).
 | Display name (short) | Full in-game label                         | Internal value | Bullet density                           | Lives | Bombs |
 | :------------------- | :----------------------------------------- | :------------- | :--------------------------------------- | :---- | :---- |
 | Easy                 | `Yalla yalla brother no problem very easy` | `easy`         | 0.4× (super santai, buat hafal kosakata) | 5     | 5     |
-| Medium-easy          | `Habibi this is good very nice`            | `hard`         | 0.7× (masih ramah)                       | 4     | 4     |
-| Normal               | `Wallahi habibi youre good brother`        | `normal`       | 1.0× (standar)                           | 3     | 3     |
-| Hard                 | `HABIBI WELCOME TO JAHANNAM HABIBI`        | `lunatic`      | 1.4× (nyaris mustahil)                   | 2     | 2     |
+| Medium-easy          | `Ana this is good very nice`            | `hard`         | 0.7× (masih ramah)                       | 4     | 4     |
+| Normal               | `Wallahi ana youre good brother`        | `normal`       | 1.0× (standar)                           | 3     | 3     |
+| Hard                 | `ANA WELCOME TO JAHANNAM ANA`        | `lunatic`      | 1.4× (nyaris mustahil)                   | 2     | 2     |
 | **Mute**             | <kbd>M</kbd>                               | —              |
 | **BGM mode**         | <kbd>N</kbd> (MP3 / Synth)                 | Mode button    |
 
@@ -104,7 +104,7 @@ TugasBArabHeheyy/
     └── game.js      # Main loop, HUD, quiz system, items, overlays
 ```
 
-### ✏️ Editing quiz questions
+### Editing quiz questions
 
 Open **`js/quizzes.js`** — it contains all 10 questions with instructions at the top:
 

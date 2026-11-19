@@ -21,9 +21,9 @@ class Game {
     this.diffLabels = {
       baby: "Baby mode — chill guy",
       easy: "Yalla yalla brother no problem very easy",
-      hard: "Habibi this is good very nice",
-      normal: "Wallahi habibi youre good brother",
-      lunatic: "HABIBI WELCOME TO JAHANNAM HABIBI",
+      hard: "Ana this is good very nice",
+      normal: "Wallahi ana youre good brother",
+      lunatic: "ANA WELCOME TO JAHANNAM ANA",
     };
     // Label pendek khusus HUD (versi panjang ada di dropdown & layar judul)
     this.diffShort = {
@@ -356,10 +356,10 @@ class Game {
         this.addFloatingText(
           cx,
           box.y + box.h + 44,
-          "+1 BOMB (HABIBI!)",
+          "+1 BOMB (ANA!)",
           "#ffcc33",
         );
-        this.chat("habibi", "Bonus bomb! Wih, mantap habibi 🎁", "good");
+        this.chat("habibi", "Bonus bomb! Wih, mantap ana 🎁", "good");
       }
     } else {
       this.streak = 0;
@@ -623,7 +623,7 @@ class Game {
 
     if (!this.player.alive) {
       this.state = "GAMEOVER";
-      this.chat("habibi", "Astaghfirullah… habibi gugur 😭", "bad");
+      this.chat("habibi", "Astaghfirullah… ana gugur 😭", "bad");
       this.chat("ustaz", "Yalla, coba lagi! Jangan menyerah 💪", "bad");
       if (this.player.score > this.highScore) {
         this.highScore = this.player.score;
@@ -718,7 +718,7 @@ class Game {
           this.chat("habibi", `Kartu ilmu ditaklukkan! +100,000 ✨`, "good");
           this.chat(
             "ustaz",
-            `Bismillah… kartu ilmu berikutnya, habibi! 💪`,
+            `Bismillah… kartu ilmu berikutnya, ana! 💪`,
             "good",
           );
           // Tampilkan penjelasan grammar sebagai floating text
@@ -757,7 +757,7 @@ class Game {
       );
       this.chat(
         "ustaz",
-        "Masya Allah… kamu lulus pelajaran ini, habibi! 🎓",
+        "Masya Allah… kamu lulus pelajaran ini, ana! 🎓",
         "good",
       );
       if (this.player.score > this.highScore) {
@@ -783,7 +783,7 @@ class Game {
           const q = window.Arabic.randomFrom(window.Arabic.deathQuotes);
           this.addFloatingText(this.player.x, this.player.y - 30, q, "#ff5252");
           this.chat("habibi", `Kena! ${q}`, "bad");
-          this.chat("ustaz", `Fokus, habibi! Jangan lengah ⚠️`, "bad");
+          this.chat("ustaz", `Fokus, ana! Jangan lengah ⚠️`, "bad");
         }
       },
       (grazeBullet) => {

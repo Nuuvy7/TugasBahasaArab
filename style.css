@@ -1,16 +1,12 @@
-/* =========================================================
-   TAJAWWUL — UI minimalis & mudah dibaca
-   Tema gelap hangat + aksen emas, tanpa glow/gradien berlebih
-   ========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Amiri:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Amiri:wght@400;700&display=swap");
 
 :root {
   --bg: #0e0d0b;
   --bg-deep: #0a0908;
   --surface: rgba(255, 255, 255, 0.035);
   --surface-hover: rgba(255, 255, 255, 0.075);
-  --line: rgba(255, 255, 255, 0.10);
-  --line-strong: rgba(255, 255, 255, 0.20);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.2);
   --gold: #d4af37;
   --gold-soft: #e6cf8f;
   --red: #ff4d6d;
@@ -20,8 +16,9 @@
   --muted: #a8a294;
   --faint: #8b857a;
   --radius: 10px;
-  --font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-text:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   --font-display: "Cinzel", Georgia, serif;
   --font-ar: "Amiri", Georgia, serif;
   color-scheme: dark;
@@ -37,7 +34,11 @@
 
 body {
   background:
-    radial-gradient(1100px 480px at 50% -8%, rgba(212, 175, 55, 0.07), transparent 70%),
+    radial-gradient(
+      1100px 480px at 50% -8%,
+      rgba(212, 175, 55, 0.07),
+      transparent 70%
+    ),
     var(--bg);
   color: var(--text);
   font-family: var(--font-text);
@@ -127,7 +128,9 @@ body {
   font-weight: 600;
   font-size: 0.85rem;
   line-height: 1.2;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -144,7 +147,7 @@ body {
 
 .btn-primary {
   border-color: rgba(212, 175, 55, 0.55);
-  background: rgba(212, 175, 55, 0.10);
+  background: rgba(212, 175, 55, 0.1);
   color: var(--gold-soft);
 }
 
@@ -401,8 +404,8 @@ body.is-fullscreen .side-panel {
   color: var(--gold-soft);
 }
 .chat-msg.ustaz .bubble {
-  background: rgba(212, 175, 55, 0.10);
-  border-color: rgba(212, 175, 55, 0.30);
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.3);
 }
 
 .chat-msg.habibi {
@@ -489,12 +492,14 @@ body.is-fullscreen .side-panel {
   font-size: 1.08rem;
   line-height: 1.4;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .quiz-opt:hover {
   border-color: rgba(212, 175, 55, 0.55);
-  background: rgba(212, 175, 55, 0.10);
+  background: rgba(212, 175, 55, 0.1);
 }
 
 .quiz-skip {
@@ -635,8 +640,8 @@ canvas {
   letter-spacing: 0.04em;
   text-transform: none;
   color: var(--gold-soft);
-  background: rgba(212, 175, 55, 0.10);
-  border: 1px solid rgba(212, 175, 55, 0.30);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 999px;
   padding: 3px 10px;
 }

@@ -1,233 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOUHOU 6 - TUGAS PROJOS</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕌</text></svg>"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOUHOU 6 - HABIBI VS USTADZ</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕌</text></svg>">
-</head>
+  <body>
+    <!-- Game Header -->
+    <header class="game-header">
+      <h1 class="game-title">Tugas Bahasa Arab Jundi</h1>
+      <div class="game-subtitle">WALLAHI THIS IS TOUHOU HABIBI</div>
+    </header>
 
-<body>
+    <!-- Controls & Audio Bar -->
+    <div class="control-bar">
+      <div class="audio-controls">
+        <button
+          id="btnToggleBGM"
+          class="btn btn-primary"
+          title="Toggle Background Music"
+        >
+          <span id="bgmIcon">🎵</span> <span id="bgmText">Play BGM</span>
+        </button>
 
-  <!-- Game Header -->
-  <header class="game-header">
-    <h1 class="game-title">HABIBI VS USTADZ </h1>
-    <div class="game-subtitle">
-      WALLAHI THIS IS TOUHOU HABIBI
-    </div>
-  </header>
+        <button
+          id="btnBgmMode"
+          class="btn"
+          title="Switch between dropped-in MP3 and the built-in Arabic synth"
+        >
+          Mode: <span id="bgmModeLabel" class="badge">SYNTH</span>
+        </button>
 
-  <!-- Controls & Audio Bar -->
-  <div class="control-bar">
-    <div class="audio-controls">
-      <button id="btnToggleBGM" class="btn btn-primary" title="Toggle Background Music">
-        <span id="bgmIcon">🎵</span> <span id="bgmText">Play BGM</span>
-      </button>
-
-      <button id="btnBgmMode" class="btn" title="Switch between dropped-in MP3 and the built-in Arabic synth">
-        Mode: <span id="bgmModeLabel" class="badge">SYNTH</span>
-      </button>
-
-      <div class="slider-group">
-        <label for="musicVol">BGM:</label>
-        <input type="range" id="musicVol" min="0" max="1" step="0.05" value="0.6">
-      </div>
-
-      <div class="slider-group">
-        <label for="sfxVol">SFX:</label>
-        <input type="range" id="sfxVol" min="0" max="1" step="0.05" value="0.55">
-      </div>
-    </div>
-
-    <span class="bar-sep" aria-hidden="true"></span>
-
-    <div class="diff-controls">
-      <div class="slider-group">
-        <label for="selectDiff">Rank:</label>
-        <select id="selectDiff" class="btn">
-          <option value="easy">Yalla yalla brother no problem very easy</option>
-          <option value="hard">Habibi this is good very nice</option>
-          <option value="normal" selected>Wallahi habibi youre good brother</option>
-          <option value="lunatic">🔥 HABIBI WELCOME TO JAHANNAM HABIBI</option>
-        </select>
-      </div>
-
-      <button id="btnFullscreen" class="btn" title="Toggle Fullscreen">⛶ Fullscreen</button>
-    </div>
-  </div>
-
-  <!-- Game Stage: canvas + side panel (chat & quiz) -->
-  <div id="stage" class="stage">
-    <div class="canvas-wrapper">
-      <canvas id="gameCanvas" width="800" height="680"></canvas>
-    </div>
-
-    <!-- Side panel: dialog Habibi/Ustaz + KUIS (aktif di fullscreen / layar lebar) -->
-    <aside id="sidePanel" class="side-panel" aria-label="Panel dialog dan kuis">
-      <section class="panel-box chat-box">
-        <h4 class="panel-title">💬 Obrolan <span class="ar">الحبيب &amp; الأستاذ</span></h4>
-        <div id="chatLog" class="chat-log">
-          <div class="chat-msg ustaz"><span class="who">الأستاذ</span><span class="bubble">Ayo buka bukumu! Kita mulai pelajaran… يلا!</span></div>
-          <div class="chat-msg habibi"><span class="who">الحبيب</span><span class="bubble">Siap ustaz, habibi siap tempur 🕌</span></div>
+        <div class="slider-group">
+          <label for="musicVol">BGM:</label>
+          <input
+            type="range"
+            id="musicVol"
+            min="0"
+            max="1"
+            step="0.05"
+            value="0.6"
+          />
         </div>
-      </section>
 
-      <section class="panel-box quiz-box">
-        <h4 class="panel-title">📝 Kuis <span id="sideQuizTimer" class="quiz-timer"></span></h4>
-        <div id="sideQuiz" class="side-quiz">
-          <div class="quiz-idle">Kuis muncul tiap ~18 detik…<br><small>Jawab di sini atau langsung di canvas.</small></div>
+        <div class="slider-group">
+          <label for="sfxVol">SFX:</label>
+          <input
+            type="range"
+            id="sfxVol"
+            min="0"
+            max="1"
+            step="0.05"
+            value="0.55"
+          />
         </div>
-      </section>
-    </aside>
-  </div>
+      </div>
 
-  <!-- Mobile On-Screen Controls -->
-  <div class="mobile-controls">
-    <div class="touch-btn-cluster">
-      <button id="touchFocus" class="touch-btn">
-        <span>SLOW</span>
-        <small>Shift</small>
-      </button>
-      <button id="touchBomb" class="touch-btn bomb">
-        <span>BOMB</span>
-        <small>X</small>
-      </button>
-    </div>
-    <div class="touch-btn-cluster">
-      <button id="touchShoot" class="touch-btn shoot">
-        <span>SHOT</span>
-        <small>Z</small>
-      </button>
-    </div>
-  </div>
+      <span class="bar-sep" aria-hidden="true"></span>
 
-  <!-- Instructions & Lore Card -->
-  <div class="instructions-card">
-    <h3>
-      <span>📋 MANUAL DANMAKU (CARA MAIN)</span>
-      <span class="chip">Boss: الأستاذ — sang Ustaz</span>
-    </h3>
-    <p>
-      Elakkan <strong>peluru huruf Arab</strong> yang dilempar oleh Ustaz! Setiap huruf punya bunyi &amp; nama — sambil
-      nge-game, kamu hafal <span class="kbd">huruf hijaiyah</span>, kosakata, dan tata bahasa Arab. Kumpulkan orb kata,
-      jawab <strong>kuis bahasa Arab</strong> yang muncul di tengah pertarungan, dan taklukkan 5 kartu ilmu grammar!
-    </p>
+      <div class="diff-controls">
+        <div class="slider-group">
+          <label for="selectDiff">Rank:</label>
+          <select id="selectDiff" class="btn">
+            <option value="easy">
+              Yalla yalla brother no problem very easy
+            </option>
+            <option value="hard">Habibi this is good very nice</option>
+            <option value="normal" selected>
+              Wallahi habibi youre good brother
+            </option>
+            <option value="lunatic">
+              🔥 HABIBI WELCOME TO JAHANNAM HABIBI
+            </option>
+          </select>
+        </div>
 
-    <div class="key-grid">
-      <div class="key-item"><span class="kbd">Arrow Keys</span> / <span class="kbd">WASD</span> Gerakkan Karakter</div>
-      <div class="key-item"><span class="kbd">Z</span> or <span class="kbd">Space</span> Tembak / Jawab Kuis</div>
-      <div class="key-item"><span class="kbd">Shift</span> Fokus (Slow + Tunjuk Hitbox)</div>
-      <div class="key-item"><span class="kbd">X</span> Bomb / Kartu Ilmu (Shawarma Habibi)</div>
-      <div class="key-item"><span class="kbd">P</span> / <span class="kbd">Esc</span> Jeda / Lanjut</div>
-      <div class="key-item"><span class="kbd">M</span> Mute / Unmute Musik</div>
-      <div class="key-item"><span class="kbd">N</span> Ganti Mode BGM (MP3 / Synth)</div>
+        <button id="btnFullscreen" class="btn" title="Toggle Fullscreen">
+          ⛶ Fullscreen
+        </button>
+      </div>
     </div>
 
-  </div>
+    <!-- Game Stage: canvas + side panel (chat & quiz) -->
+    <div id="stage" class="stage">
+      <div class="canvas-wrapper">
+        <canvas id="gameCanvas" width="800" height="680"></canvas>
+      </div>
 
-  <!-- Scripts -->
-  <script src="js/arabic.js"></script>
-  <script src="js/quizzes.js"></script>
-  <script src="js/audio.js"></script>
-  <script src="js/danmaku.js"></script>
-  <script src="js/player.js"></script>
-  <script src="js/boss.js"></script>
-  <script src="js/game.js"></script>
+      <!-- Side panel: dialog Habibi/Ustaz + KUIS (aktif di fullscreen / layar lebar) -->
+      <aside
+        id="sidePanel"
+        class="side-panel"
+        aria-label="Panel dialog dan kuis"
+      >
+        <section class="panel-box chat-box">
+          <h4 class="panel-title">
+            💬 Obrolan <span class="ar">الحبيب &amp; الأستاذ</span>
+          </h4>
+          <div id="chatLog" class="chat-log">
+            <div class="chat-msg ustaz">
+              <span class="who">الأستاذ</span
+              ><span class="bubble"
+                >Ayo buka bukumu! Kita mulai pelajaran… يلا!</span
+              >
+            </div>
+            <div class="chat-msg habibi">
+              <span class="who">الحبيب</span
+              ><span class="bubble">Siap ustaz, habibi siap tempur 🕌</span>
+            </div>
+          </div>
+        </section>
 
-  <!-- UI Event Handlers -->
-  <script>
-      document.addEventListener('DOMContentLoaded', () => {
+        <section class="panel-box quiz-box">
+          <h4 class="panel-title">
+            📝 Kuis <span id="sideQuizTimer" class="quiz-timer"></span>
+          </h4>
+          <div id="sideQuiz" class="side-quiz">
+            <div class="quiz-idle">
+              Kuis muncul tiap ~18 detik…<br /><small
+                >Jawab di sini atau langsung di canvas.</small
+              >
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <!-- Mobile On-Screen Controls -->
+    <div class="mobile-controls">
+      <div class="touch-btn-cluster">
+        <button id="touchFocus" class="touch-btn">
+          <span>SLOW</span>
+          <small>Shift</small>
+        </button>
+        <button id="touchBomb" class="touch-btn bomb">
+          <span>BOMB</span>
+          <small>X</small>
+        </button>
+      </div>
+      <div class="touch-btn-cluster">
+        <button id="touchShoot" class="touch-btn shoot">
+          <span>SHOT</span>
+          <small>Z</small>
+        </button>
+      </div>
+    </div>
+
+    <!-- Instructions & Lore Card -->
+    <div class="instructions-card">
+      <h3>
+        <span>📋 MANUAL DANMAKU (CARA MAIN)</span>
+        <span class="chip">Boss: الأستاذ — sang Ustaz</span>
+      </h3>
+      <p>
+        Elakkan <strong>peluru huruf Arab</strong> yang dilempar oleh Ustaz!
+        Setiap huruf punya bunyi &amp; nama — sambil nge-game, kamu hafal
+        <span class="kbd">huruf hijaiyah</span>, kosakata, dan tata bahasa Arab.
+        Kumpulkan orb kata, jawab <strong>kuis bahasa Arab</strong> yang muncul
+        di tengah pertarungan, dan taklukkan 5 kartu ilmu grammar!
+      </p>
+
+      <div class="key-grid">
+        <div class="key-item">
+          <span class="kbd">Arrow Keys</span> /
+          <span class="kbd">WASD</span> Gerakkan Karakter
+        </div>
+        <div class="key-item">
+          <span class="kbd">Z</span> or <span class="kbd">Space</span> Tembak /
+          Jawab Kuis
+        </div>
+        <div class="key-item">
+          <span class="kbd">Shift</span> Fokus (Slow + Tunjuk Hitbox)
+        </div>
+        <div class="key-item">
+          <span class="kbd">X</span> Bomb / Kartu Ilmu (Shawarma Habibi)
+        </div>
+        <div class="key-item">
+          <span class="kbd">P</span> / <span class="kbd">Esc</span> Jeda /
+          Lanjut
+        </div>
+        <div class="key-item">
+          <span class="kbd">M</span> Mute / Unmute Musik
+        </div>
+        <div class="key-item">
+          <span class="kbd">N</span> Ganti Mode BGM (MP3 / Synth)
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/arabic.js"></script>
+    <script src="js/quizzes.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/danmaku.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/boss.js"></script>
+    <script src="js/game.js"></script>
+
+    <!-- UI Event Handlers -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
         const audio = window.audioManager;
-        const btnToggleBGM = document.getElementById('btnToggleBGM');
-        const bgmIcon = document.getElementById('bgmIcon');
-        const bgmText = document.getElementById('bgmText');
-        const btnBgmMode = document.getElementById('btnBgmMode');
-        const bgmModeLabel = document.getElementById('bgmModeLabel');
-        const musicVol = document.getElementById('musicVol');
-        const sfxVol = document.getElementById('sfxVol');
-        const selectDiff = document.getElementById('selectDiff');
-        const btnFullscreen = document.getElementById('btnFullscreen');
+        const btnToggleBGM = document.getElementById("btnToggleBGM");
+        const bgmIcon = document.getElementById("bgmIcon");
+        const bgmText = document.getElementById("bgmText");
+        const btnBgmMode = document.getElementById("btnBgmMode");
+        const bgmModeLabel = document.getElementById("bgmModeLabel");
+        const musicVol = document.getElementById("musicVol");
+        const sfxVol = document.getElementById("sfxVol");
+        const selectDiff = document.getElementById("selectDiff");
+        const btnFullscreen = document.getElementById("btnFullscreen");
 
         function updateBgmUI() {
           if (audio.isPlaying) {
-            bgmIcon.textContent = '⏸';
-            bgmText.textContent = 'Pause BGM';
-            btnToggleBGM.classList.add('btn-primary');
+            bgmIcon.textContent = "⏸";
+            bgmText.textContent = "Pause BGM";
+            btnToggleBGM.classList.add("btn-primary");
           } else {
-            bgmIcon.textContent = '▶';
-            bgmText.textContent = 'Play BGM';
-            btnToggleBGM.classList.remove('btn-primary');
+            bgmIcon.textContent = "▶";
+            bgmText.textContent = "Play BGM";
+            btnToggleBGM.classList.remove("btn-primary");
           }
           // Show which source is actually available
-          if (audio.bgmMode === 'ost' && !audio.ostAvailable) {
-            bgmModeLabel.textContent = 'MP3 (belum ada)';
+          if (audio.bgmMode === "ost" && !audio.ostAvailable) {
+            bgmModeLabel.textContent = "MP3 (belum ada)";
           } else {
-            bgmModeLabel.textContent = audio.bgmMode === 'ost' ? 'MP3' : 'SYNTH';
+            bgmModeLabel.textContent =
+              audio.bgmMode === "ost" ? "MP3" : "SYNTH";
           }
         }
 
-        btnToggleBGM.addEventListener('click', () => {
+        btnToggleBGM.addEventListener("click", () => {
           audio.toggleBGM();
           updateBgmUI();
         });
 
-        btnBgmMode.addEventListener('click', () => {
-          const next = audio.bgmMode === 'ost' ? 'synth' : 'ost';
+        btnBgmMode.addEventListener("click", () => {
+          const next = audio.bgmMode === "ost" ? "synth" : "ost";
           audio.setBGMMode(next);
           updateBgmUI();
         });
 
-        musicVol.addEventListener('input', (e) => {
+        musicVol.addEventListener("input", (e) => {
           audio.setMusicVolume(parseFloat(e.target.value));
         });
 
-        sfxVol.addEventListener('input', (e) => {
+        sfxVol.addEventListener("input", (e) => {
           audio.setSFXVolume(parseFloat(e.target.value));
         });
 
-        selectDiff.addEventListener('change', (e) => {
+        selectDiff.addEventListener("change", (e) => {
           if (window.game) {
             window.game.difficulty = e.target.value;
             window.game.boss.setDifficulty(e.target.value);
           }
         });
 
-        btnFullscreen.addEventListener('click', () => {
+        btnFullscreen.addEventListener("click", () => {
           const enter = () => {
-            document.body.classList.add('is-fullscreen');
-            if (window.game && window.game.syncSidePanel) window.game.syncSidePanel();
+            document.body.classList.add("is-fullscreen");
+            if (window.game && window.game.syncSidePanel)
+              window.game.syncSidePanel();
           };
           if (!document.fullscreenElement) {
             // Fullscreen SELURUH document → canvas kiri, panel dialog/kuis kanan
             const p = document.documentElement.requestFullscreen
               ? document.documentElement.requestFullscreen()
-              : Promise.reject(new Error('Fullscreen API tidak tersedia'));
+              : Promise.reject(new Error("Fullscreen API tidak tersedia"));
             p.then(enter).catch(() => {
               // Fallback kalau browser memblokir fullscreen: paksa layout CSS saja
-              document.body.classList.toggle('is-fullscreen');
-              if (window.game && window.game.syncSidePanel) window.game.syncSidePanel();
+              document.body.classList.toggle("is-fullscreen");
+              if (window.game && window.game.syncSidePanel)
+                window.game.syncSidePanel();
             });
           } else {
             document.exitFullscreen();
           }
         });
 
-        document.addEventListener('fullscreenchange', () => {
-          if (!document.fullscreenElement) document.body.classList.remove('is-fullscreen');
-          if (window.game && window.game.syncSidePanel) window.game.syncSidePanel();
+        document.addEventListener("fullscreenchange", () => {
+          if (!document.fullscreenElement)
+            document.body.classList.remove("is-fullscreen");
+          if (window.game && window.game.syncSidePanel)
+            window.game.syncSidePanel();
         });
 
         // Tombol jawab kuis di side panel
-        const sideQuizEl = document.getElementById('sideQuiz');
+        const sideQuizEl = document.getElementById("sideQuiz");
         if (sideQuizEl) {
-          sideQuizEl.addEventListener('click', (e) => {
+          sideQuizEl.addEventListener("click", (e) => {
             const g = window.game;
             if (!g) return;
-            if (e.target.id === 'sideQuizSkip') { g.skipQuiz(); return; }
-            const btn = e.target.closest('button[data-i]');
+            if (e.target.id === "sideQuizSkip") {
+              g.skipQuiz();
+              return;
+            }
+            const btn = e.target.closest("button[data-i]");
             if (!btn) return;
             g.quizIndex = parseInt(btn.dataset.i, 10);
             g.answerQuiz();
@@ -235,60 +309,69 @@
         }
 
         // Mobile Touch buttons
-        const touchFocus = document.getElementById('touchFocus');
-        const touchBomb = document.getElementById('touchBomb');
-        const touchShoot = document.getElementById('touchShoot');
+        const touchFocus = document.getElementById("touchFocus");
+        const touchBomb = document.getElementById("touchBomb");
+        const touchShoot = document.getElementById("touchShoot");
 
         if (touchFocus) {
-          touchFocus.addEventListener('touchstart', (e) => {
+          touchFocus.addEventListener("touchstart", (e) => {
             e.preventDefault();
             if (window.game) {
-              window.game.keys['Shift'] = !window.game.keys['Shift'];
-              touchFocus.style.background = window.game.keys['Shift'] ? '#ff3366' : '';
+              window.game.keys["Shift"] = !window.game.keys["Shift"];
+              touchFocus.style.background = window.game.keys["Shift"]
+                ? "#ff3366"
+                : "";
             }
           });
         }
 
         if (touchBomb) {
-          touchBomb.addEventListener('touchstart', (e) => {
+          touchBomb.addEventListener("touchstart", (e) => {
             e.preventDefault();
             if (window.game) {
-              window.game.keys['KeyX'] = true;
+              window.game.keys["KeyX"] = true;
             }
           });
         }
 
         if (touchShoot) {
-          touchShoot.addEventListener('touchstart', (e) => {
+          touchShoot.addEventListener("touchstart", (e) => {
             e.preventDefault();
             if (window.game) {
-              window.game.keys['KeyZ'] = true;
+              window.game.keys["KeyZ"] = true;
             }
             audio.ensureContext();
             if (!audio.isPlaying) audio.playBGM();
             updateBgmUI();
           });
-          touchShoot.addEventListener('touchend', (e) => {
+          touchShoot.addEventListener("touchend", (e) => {
             e.preventDefault();
             if (window.game) {
-              window.game.keys['KeyZ'] = false;
+              window.game.keys["KeyZ"] = false;
             }
           });
         }
 
         // Initial audio unlock on first interaction
-        window.addEventListener('click', () => {
-          audio.ensureContext();
-        }, { once: true });
-        window.addEventListener('keydown', () => {
-          audio.ensureContext();
-        }, { once: true });
+        window.addEventListener(
+          "click",
+          () => {
+            audio.ensureContext();
+          },
+          { once: true },
+        );
+        window.addEventListener(
+          "keydown",
+          () => {
+            audio.ensureContext();
+          },
+          { once: true },
+        );
 
         // Refresh the mode label once the MP3 availability probe finishes
-        window.addEventListener('bgm-probe-done', updateBgmUI);
+        window.addEventListener("bgm-probe-done", updateBgmUI);
         updateBgmUI();
       });
     </script>
-</body>
-
+  </body>
 </html>

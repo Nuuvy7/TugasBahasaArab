@@ -1,43 +1,9 @@
-/**
- * ============================================================
- *  BANK SOAL KUIS — 10 soal kosakata bahasa Arab
- * ============================================================
- *
- *  CARA MENGUBAH SOAL (cukup edit file ini, lalu refresh halaman):
- *
- *  1) TAMBAH soal  → salin satu blok { ... } lalu tempel di bawah,
- *                    ubah isinya.
- *  2) HAPUS soal    → hapus satu blok { ... } beserta koma di akhirnya.
- *  3) MODIFIKASI    → ubah teks di dalam blok { ... } yang ada.
- *
- *  FORMAT SATU SOAL:
- *    {
- *      q:       "Pertanyaan yang tampil (boleh pakai <b>tebal</b>)",
- *      type:    "id" | "ar",   // "id" = arti Arab → Indonesia
- *                              // "ar" = arti Indonesia → Arab
- *      options: ["opsi1", "opsi2", "opsi3", "opsi4"],  // HARUS 4 opsi
- *      answer:  0,             // nomor opsi yang benar (0 sampai 3)
- *    },
- *
- *  ATURAN (dicek otomatis saat game dimuat — lihat console browser):
- *    - options harus tepat 4 dan TIDAK boleh ada yang sama.
- *    - answer harus angka 0–3.
- *    - q tidak boleh kosong.
- *
- *  Bisa juga ubah soal lewat console saat game berjalan:
- *    QuizBank.add({ q: "...", type: "id", options: ["a","b","c","d"], answer: 0 })
- *    QuizBank.remove(0)            // hapus soal nomor 0
- *    QuizBank.edit(1, { answer: 2 }) // ubah sebagian isi soal nomor 1
- *    QuizBank.list                  // lihat semua soal
- * ============================================================
- */
 (function () {
   "use strict";
 
   const SOAL = [
-    // ---------- Arab → Indonesia (pilih arti) ----------
     {
-      q: "Apa arti dari <b>Hadza qalamun</b>?",
+      q: "Apa arti dari <b>Hadza qalamun</b> - <b>هٰذَا قَلَمٌ</b>?",
       type: "id",
       options: ["Ini pulpen", "Ini penggaris", "Ini tas", "Ini penghapus"],
       answer: 0,
@@ -46,15 +12,15 @@
       q: "Bahasa Arab dari <b>Ini penggaris</b> adalah...",
       type: "ar",
       options: [
-        "Hadza mistharatun",
-        "Hadzihi mistharatun",
-        "Hadzihi qalamun",
-        "Hadza haqiibatun",
+        "Hadza mistharatun - هٰذَا مِسْطَرَةٌ",
+        "Hadzihi mistharatun - هٰذِهِ مِسْطَرَةٌ",
+        "Hadzihi qalamun - هٰذِهِ قَلَمٌ",
+        "Hadza haqiibatun - هٰذَا حَقِيبَةٌ",
       ],
       answer: 1,
     },
     {
-      q: "Arti dari kalimat <b>Hadzihi mimhaatun</b> adalah...",
+      q: "Arti dari kalimat <b>Hadzihi mimhaatun</b> - <b>هٰذِهِ مِمْحَاةٌ</b> adalah...",
       type: "id",
       options: ["Ini buku tulis", "Ini pensil", "Ini penghapus", "Ini meja"],
       answer: 2,
@@ -63,15 +29,15 @@
       q: "Terjemahan yang tepat untuk <b>Ini buku tulis</b> adalah...",
       type: "ar",
       options: [
-        "Hadzihi daftarun",
-        "Hadza mimhaatun",
-        "Hadzihi mibraatun",
-        "Hadza daftarun",
+        "Hadzihi daftarun - هٰذِهِ دَفْتَرٌ",
+        "Hadza mimhaatun - هٰذَا مِمْحَاةٌ",
+        "Hadzihi mibraatun - هٰذِهِ مِبْرَاةٌ",
+        "Hadza daftarun - هٰذَا دَفْتَرٌ",
       ],
       answer: 3,
     },
     {
-      q: "Apa arti dari <b>Hadzihi haqiibatun</b>?",
+      q: "Apa arti dari <b>Hadzihi haqiibatun</b> - <b>هٰذِهِ حَقِيبَةٌ</b>?",
       type: "id",
       options: ["Ini tas", "Ini kursi", "Ini kertas", "Ini rautan"],
       answer: 0,
@@ -80,15 +46,15 @@
       q: "Bahasa Arab yang benar untuk <b>Ini pensil</b> adalah...",
       type: "ar",
       options: [
-        "Hadzihi mirsamun",
-        "Hadza mirsamun",
-        "Hadza miqlamatun",
-        "Hadzihi kitabun",
+        "Hadzihi mirsamun - هٰذِهِ مِرْسَمٌ",
+        "Hadza mirsamun - هٰذَا مِرْسَمٌ",
+        "Hadza miqlamatun - هٰذَا مِقْلَمَةٌ",
+        "Hadzihi kitabun - هٰذِهِ كِتَابٌ",
       ],
       answer: 1,
     },
     {
-      q: "Arti dari <b>Hadza kitabun</b> dalam bahasa Indonesia adalah...",
+      q: "Arti dari <b>Hadza kitabun</b> - <b>هٰذَا كِتَابٌ</b> dalam bahasa Indonesia adalah...",
       type: "id",
       options: [
         "Ini tempat pensil",
@@ -102,15 +68,15 @@
       q: "Bahasa Arab dari <b>Ini rautan</b> adalah...",
       type: "ar",
       options: [
-        "Hadza mibraatun",
-        "Hadza kursiyyun",
-        "Hadzihi qalamun",
-        "Hadzihi mibraatun",
+        "Hadza mibraatun - هٰذَا مِبْرَاةٌ",
+        "Hadza kursiyyun - هٰذَا كُرْسِيٌّ",
+        "Hadzihi qalamun - هٰذِهِ قَلَمٌ",
+        "Hadzihi mibraatun - هٰذِهِ مِبْرَاةٌ",
       ],
       answer: 3,
     },
     {
-      q: "Apa arti dari kalimat <b>Hadzihi miqlamatun</b>?",
+      q: "Apa arti dari kalimat <b>Hadzihi miqlamatun</b> - <b>هٰذِهِ مِقْلَمَةٌ</b>?",
       type: "id",
       options: [
         "Ini tempat pensil",
@@ -124,10 +90,10 @@
       q: "Terjemahan yang tepat untuk <b>Ini kursi</b> adalah...",
       type: "ar",
       options: [
-        "Hadzihi kursiyyun",
-        "Hadza kursiyyun",
-        "Hadzihi maktabun",
-        "Hadza sabbuuratun",
+        "Hadzihi kursiyyun - هٰذِهِ كُرْسِيٌّ",
+        "Hadza kursiyyun - هٰذَا كُرْسِيٌّ",
+        "Hadzihi maktabun - هٰذِهِ مَكْتَبٌ",
+        "Hadza sabbuuratun - هٰذَا سَبُّورَةٌ",
       ],
       answer: 1,
     },

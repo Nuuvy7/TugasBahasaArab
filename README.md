@@ -23,37 +23,37 @@ Then open **http://localhost:8080** (or open `index.html` directly).
 
 ## 🕹️ Controls
 
-| Action | Keyboard | Touch / Mobile |
-| :--- | :--- | :--- |
-| **Move** | <kbd>Arrow Keys</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> | Drag screen |
-| **Shoot** | <kbd>Z</kbd> or <kbd>Space</kbd> | `SHOT` button |
-| **Focus** | <kbd>Shift</kbd> (hold) | `SLOW` button |
-| **Bomb** | <kbd>X</kbd> — *Shawarma Habibi* | `BOMB` button |
-| **Quiz answers** | <kbd>↑</kbd><kbd>↓</kbd> + <kbd>Z</kbd> | Tap the option |
-| **Pause** | <kbd>P</kbd> / <kbd>Esc</kbd> | — |
+| Action           | Keyboard                                                                  | Touch / Mobile |
+| :--------------- | :------------------------------------------------------------------------ | :------------- |
+| **Move**         | <kbd>Arrow Keys</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> | Drag screen    |
+| **Shoot**        | <kbd>Z</kbd> or <kbd>Space</kbd>                                          | `SHOT` button  |
+| **Focus**        | <kbd>Shift</kbd> (hold)                                                   | `SLOW` button  |
+| **Bomb**         | <kbd>X</kbd> — _Shawarma Habibi_                                          | `BOMB` button  |
+| **Quiz answers** | <kbd>↑</kbd><kbd>↓</kbd> + <kbd>Z</kbd>                                   | Tap the option |
+| **Pause**        | <kbd>P</kbd> / <kbd>Esc</kbd>                                             | —              |
 
 ### Difficulty / Rank
 
-| Display name (short) | Full in-game label | Internal value | Bullet density | Lives | Bombs |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 👶 Easy | `Yalla yalla brother no problem very easy` | `easy` | 0.4× (super santai, buat hafal kosakata) | 5 | 5 |
-| 🫶 Medium-easy | `Habibi this is good very nice` | `hard` | 0.7× (masih ramah) | 4 | 4 |
-| ⚔️ Normal | `Wallahi habibi youre good brother` | `normal` | 1.0× (standar) | 3 | 3 |
-| 🔥 Hard | `HABIBI WELCOME TO JAHANNAM HABIBI` | `lunatic` | 1.4× (nyaris mustahil) | 2 | 2 |
-| **Mute** | <kbd>M</kbd> | — |
-| **BGM mode** | <kbd>N</kbd> (MP3 / Synth) | Mode button |
+| Display name (short) | Full in-game label                         | Internal value | Bullet density                           | Lives | Bombs |
+| :------------------- | :----------------------------------------- | :------------- | :--------------------------------------- | :---- | :---- |
+| 👶 Easy              | `Yalla yalla brother no problem very easy` | `easy`         | 0.4× (super santai, buat hafal kosakata) | 5     | 5     |
+| 🫶 Medium-easy       | `Habibi this is good very nice`            | `hard`         | 0.7× (masih ramah)                       | 4     | 4     |
+| ⚔️ Normal            | `Wallahi habibi youre good brother`        | `normal`       | 1.0× (standar)                           | 3     | 3     |
+| 🔥 Hard              | `HABIBI WELCOME TO JAHANNAM HABIBI`        | `lunatic`      | 1.4× (nyaris mustahil)                   | 2     | 2     |
+| **Mute**             | <kbd>M</kbd>                               | —              |
+| **BGM mode**         | <kbd>N</kbd> (MP3 / Synth)                 | Mode button    |
 
 ---
 
 ## 🎓 Where's the Arabic?
 
-| Feature | What you learn |
-| :--- | :--- |
-| **Letter bullets** | All 28 hijaiyah letters (name + sound shown) |
-| **Word orbs (green)** | Daily vocabulary: قَهْوَة = kopi, جَمَل = unta, … |
-| **Quizzes (every ~18s)** | 10 vocab questions (Arab↔Indonesia), with streak bonus |
+| Feature                            | What you learn                                                                            |
+| :--------------------------------- | :---------------------------------------------------------------------------------------- |
+| **Letter bullets**                 | All 28 hijaiyah letters (name + sound shown)                                              |
+| **Word orbs (green)**              | Daily vocabulary: قَهْوَة = kopi, جَمَل = unta, …                                              |
+| **Quizzes (every ~18s)**           | 10 vocab questions (Arab↔Indonesia), with streak bonus                                    |
 | **5 Knowledge Cards (Kartu Ilmu)** | Real grammar: Al-Harakat, المثنى (dual), التعريف والتنكير, الإضافة (idhafah), لام التعليل |
-| **HUD** | Tracks your quiz score & words memorized 📚 |
+| **HUD**                            | Tracks your quiz score & words memorized 📚                                               |
 
 ### Boss phases (the "curriculum")
 
@@ -63,7 +63,7 @@ Then open **http://localhost:8080** (or open `index.html` directly).
 4. **دَرْس الْإِضَافَة "Idhafah"** — kartu ilmu: construct state / possession chain
 5. **لَامُ التَّعْلِيل "Lam Ta'lil"** — kartu ilmu final: causal "because/so that" lam
 
-> ℹ️ Nada game sengaja dibuat **ilmiah, bukan sihir** — fase disebut *kartu ilmu* / *pelajaran*,
+> ℹ️ Nada game sengaja dibuat **ilmiah, bukan sihir** — fase disebut _kartu ilmu_ / _pelajaran_,
 > cocok untuk tugas sekolah.
 
 ---

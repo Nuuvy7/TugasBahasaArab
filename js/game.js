@@ -19,7 +19,7 @@ class Game {
 
     // Label + tuning tiap difficulty (kunci internal: easy/hard/normal/lunatic)
     this.diffLabels = {
-      baby: "Baby mode — habibi damai",
+      baby: "Baby mode — chill guy",
       easy: "Yalla yalla brother no problem very easy",
       hard: "Habibi this is good very nice",
       normal: "Wallahi habibi youre good brother",
